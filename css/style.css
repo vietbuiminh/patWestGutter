@@ -22,7 +22,7 @@ body {
 }
 
 .justify {
-  max-width: 1200px;
+  max-width: 1400px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -46,9 +46,6 @@ body {
 }
 
 .navcontent {
-  max-width: 1400px;
-  margin-left: auto;
-  margin-right: auto;
   position: relative;
   display: grid;
   grid-template-columns: 1fr 4fr;
@@ -131,11 +128,40 @@ nav ul li a.menu-active {
   height: 100%;
   object-fit: cover;
   object-position: 50% 30%;
+  z-index: -2;
 }
 
 .banner {
   height: 90vh;
 }
+
+/* Banner's children div */
+.intro-container {
+  position: absolute;
+  height: calc(100% - 156px);
+  width: 100%;
+  bottom: 0;
+  left: 0;
+}
+
+.intro-box {
+  position: relative;
+  display: grid;
+}
+
+.intro-box div{
+  padding: 0 2em 2em;
+  max-width: 500px;
+}
+
+
+
+
+
+
+
+
+
 
 /* Special CSS for style */
 .clip-corner {
@@ -147,8 +173,8 @@ nav ul li a.menu-active {
   content: "";
   position: absolute;
   bottom: 0; left: 0;
-  width: 200px; 
-  height: 200px;
+  width: 10vw; 
+  height: 10vw;
   background-color: white;
   clip-path: polygon(0 0, 0% 100%, 100% 100%);
   -webkit-clip-path: polygon(0 0, 0% 100%, 100% 100%);
@@ -159,6 +185,7 @@ nav ul li a.menu-active {
   height: 100%;
   width: 100%;
   overflow: hidden;
+  z-index: 1;
 }
 .corner-cut:after,
 .corner-cut:before {
@@ -167,9 +194,26 @@ nav ul li a.menu-active {
   width: 100%;
   left: 0px;
   z-index: -1;
+  
 }
 .filled-white::before, .filled-white::after {
   background-color: white !important;
+}
+.filled-transparent::before, .filled-transparent::after {
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+:root {
+  --border-dash: dashed var(--hero-blue);
+}
+.dash-border::before {
+  border: var(--border-dash);
+  border-width: 2px 2px 0 2px;
+  height: calc(60% - 4px) !important;
+}
+.dash-border::after {
+  border: var(--border-dash);
+  border-width: 0 2px 2px 2px;
 }
 .corner-cut::before {
   height: 60%;
@@ -182,3 +226,4 @@ nav ul li a.menu-active {
   transform-origin: left top;
 }
 
+/* End of special CSS */
