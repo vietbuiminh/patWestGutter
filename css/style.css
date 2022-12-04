@@ -1,7 +1,7 @@
 :root {
   --hero-blue: #1b3f6f;
   --secondary-blue: #2d578f;
-  --accent-yellow: 
+  --accent-yellow: #ffff00;
 }
 * {
     font-family: 'Nunito Sans', sans-serif;
@@ -33,6 +33,12 @@ body {
   padding-left: 5%;
   padding-right: 5%;
 }
+
+h1 {
+  font-size: 40px;
+  color: var(--secondary-blue);
+}
+
 
 /* Navigation Bar */
 
@@ -147,23 +153,146 @@ nav ul li a.menu-active {
 .intro-box {
   position: relative;
   display: grid;
+  height: 100%;
+  width: 100%;
 }
 
-.intro-box div{
-  padding: 0 2em 2em;
-  max-width: 500px;
+.intro-box > div{
+  position: absolute;
+  height: fit-content;
+  padding: 0 3em 2em;
+  max-width: 550px;
+  bottom: 150px;
 }
 
+.intro-box div h1{
+  text-transform: uppercase;
+  margin-bottom: 0;
+}
 
+.intro-box div p {
+  margin-top: 0;
+  font-size: 1.2em;
+}
+.align-right {
+  display: grid;
+  justify-content: end;
+}
+.intro-box a {
+  font-weight: bold;
+  color: var(--secondary-blue);
+}
 
+section {
+  padding-bottom: 100px;
+}
 
+.yellow-strike::after, .yellow-strike::before {
+  content: "";
+  background-color: var(--accent-yellow);
+  height: 4px;
+}
 
+.yellow-strike {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  width: 100%;
+  align-items: center;
+}
 
+.title h1 {
+  padding: 0 20px;
+  margin: 0 0;
+  text-align: center;
+}
 
+.subtitle {
+  text-align: center;
+}
 
+.four-column-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 3em;
+  margin-top: 3em;
+}
+
+.card {
+  display: grid;
+  grid-template-rows: 1fr 0.7fr;
+  justify-content: space-between;
+  align-items: center;
+  text-align: right;
+  background-color: var(--hero-blue);
+  padding: 19px;
+  aspect-ratio: 1 / 1;
+  color: white;
+}
+
+.card img {
+  margin: 0 auto;
+}
+
+.fill-img {
+  padding: 0 !important;
+}
+
+.fill-img img {
+  object-fit: cover !important;
+  height: 100% !important;
+  width: 100% !important;
+}
 
 
 /* Special CSS for style */
+.button {
+  display: inline-block;
+  border: none;
+  padding: 1rem 2rem;
+  margin: 0;
+  text-decoration: none;
+  background: var(--accent-yellow);
+  color: var(--hero-blue);
+  font-size: 1rem;
+  cursor: pointer;
+  text-align: center;
+  transition: background 250ms ease-in-out, 
+              transform 150ms ease;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+.button:hover,
+.button:focus {
+  background: var(--secondary-blue);
+  color: white;
+}
+
+.button:focus {
+  outline: 1px solid #fff;
+  outline-offset: -4px;
+}
+
+.button:active {
+  transform: scale(0.99);
+}
+
+.small-clip-corner {
+  position: relative;
+  overflow: hidden;
+}
+
+.small-clip-corner::after {
+  content: "";
+  position: absolute;
+  bottom: -1px; left: -1px;
+  width: 30%; 
+  height: 30%;
+  background-color: white;
+  clip-path: polygon(0 0, 0% 100%, 100% 100%);
+  -webkit-clip-path: polygon(0 0, 0% 100%, 100% 100%);
+}
+
 .clip-corner {
   position: relative;
   overflow: hidden;
@@ -172,12 +301,26 @@ nav ul li a.menu-active {
 .clip-corner::after {
   content: "";
   position: absolute;
-  bottom: 0; left: 0;
+  bottom: -1px; left: 0;
   width: 10vw; 
   height: 10vw;
   background-color: white;
   clip-path: polygon(0 0, 0% 100%, 100% 100%);
   -webkit-clip-path: polygon(0 0, 0% 100%, 100% 100%);
+}
+
+.blued {
+  background-color: var(--hero-blue);
+  color: white !important;
+  padding: 30px 0;
+}
+
+.blued h1 {
+  color: white;
+}
+
+.blued .small-clip-corner::after {
+  background-color: var(--hero-blue) !important;
 }
 
 .corner-cut {
